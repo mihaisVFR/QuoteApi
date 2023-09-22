@@ -54,4 +54,9 @@ def edit_quote(id):
 
 @app.route('/quotes/<int:quote_id>', methods=["DELETE"])
 def delete_quote(quote_id):
-    raise NotImplemented("Метод не реализован")
+    quote = QuoteModel.query.get(quote_id)
+    if quote is not None:
+        db.session.delete(quote)
+        db.session.commit()
+        return f"цитата {quote_id} удалена", 200
+    return f"Quote with id={quote_id} not found", 404
