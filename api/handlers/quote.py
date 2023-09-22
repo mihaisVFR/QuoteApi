@@ -47,6 +47,8 @@ def create_quote(author_id):
 def edit_quote(id):
     quote_data = request.json
     quote = QuoteModel.query.get(id)
+    if quote is None:
+        return {"Error": f"Quote id={id} not found"}, 404
     quote.text = quote_data["text"]
     db.session.commit()
     return quote.to_dict(), 200
@@ -58,5 +60,5 @@ def delete_quote(quote_id):
     if quote is not None:
         db.session.delete(quote)
         db.session.commit()
-        return f"цитата {quote_id} удалена", 200
+        return {"Success": f"quote {quote_id} deleted"}, 200
     return f"Quote with id={quote_id} not found", 404
