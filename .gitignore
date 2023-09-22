@@ -1,7 +1,8 @@
 .idea/
-.vscode/
+../.idea/
 __pycache__/
-tmp/
+QuoteApi/.idea/
+QuoteApi/__pycache__/
 *env/
+*env
 *.db
-*.pyc
