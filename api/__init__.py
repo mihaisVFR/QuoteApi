@@ -1,5 +1,5 @@
-from QuoteApi.config import Config
-from flask import Flask  # request
+from config import Config
+from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
