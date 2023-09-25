@@ -8,6 +8,8 @@ flask = "*"
 httpie = "*"
 flask-sqlalchemy = "*"
 flask-migrate = "*"
+marshmallow = "*"
+flask-marshmallow = "*"
 
 [dev-packages]
 
