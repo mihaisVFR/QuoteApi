@@ -59,4 +59,4 @@ def delete_quote(quote_id):
         db.session.delete(quote)
         db.session.commit()
         return {"Success": f"quote {quote_id} deleted"}, 200
-    return {"Error": f"Quote id={id} not found"}, 404
+    return {"Error": f"Quote id={quote_id} not found"}, 404
