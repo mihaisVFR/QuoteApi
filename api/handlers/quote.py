@@ -41,12 +41,12 @@ def create_quote(author_id):
     return quote.to_dict(), 201
 
 
-@app.route('/quotes/<int:id>', methods=["PUT"])
-def edit_quote(id):
+@app.route('/quotes/<int:quote_id>', methods=["PUT"])
+def edit_quote(quote_id):
     quote_data = request.json
-    quote = QuoteModel.query.get(id)
+    quote = QuoteModel.query.get(quote_id)
     if quote is None:
-        return {"Error": f"Quote id={id} not found"}, 404
+        return {"Error": f"Quote id={quote_id} not found"}, 404
     quote.text = quote_data["text"]
     db.session.commit()
     return quote.to_dict(), 200
