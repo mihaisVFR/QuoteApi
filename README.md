@@ -1,5 +1,6 @@
 # Развертывание на локальной машине
-1. Создаем виртуальное окружение: python3 -m venv flask_venv
-1. Активируем venv: source flask_venv/bin/activate
-1. Устанавливаем зависимости: pip install -r requirements.txt
-1. Создаем локальную БД: flask db upgrade
+1. Установить pipenv `sudo apt update`, `apt install pipenv`
+2. Создать виртуальное окружение и установить зависимости: `pipenv sync`
+3. Запустить виртуальное окружение: `pipenv shell`
+4. Создание локальной БД `pipenv run python  create_db.py`
+5. Для заполнения таблицы Learners значениями `pipenv run python add_learners.py`

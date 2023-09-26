@@ -1,6 +1,4 @@
 from api import app
-from api.handlers import author
-from api.handlers import quote
 from config import Config
 
 
