@@ -1,4 +1,4 @@
-from api import app, db, request
+from api import db
 
 
 class Learner(db.Model):

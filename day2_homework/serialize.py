@@ -1,6 +1,6 @@
 from api.models.model_homework import Learner
 from day2_homework.schema import LearnerSchema
-from api import app, db
+from api import app
 
 
 def serialize_learner(learner_id=1, many=False):
@@ -16,3 +16,6 @@ def serialize_learner(learner_id=1, many=False):
         return result
 
 
+def tests():
+    print(serialize_learner(many=True), type(serialize_learner(many=True)))
+    print(serialize_learner(), type(serialize_learner()))
