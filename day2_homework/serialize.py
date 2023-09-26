@@ -19,3 +19,4 @@ def serialize_learner(learner_id=1, many=False):
 def tests():
     print(serialize_learner(many=True), type(serialize_learner(many=True)))
     print(serialize_learner(), type(serialize_learner()))
+
