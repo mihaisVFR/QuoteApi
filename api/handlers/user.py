@@ -12,7 +12,7 @@ def get_user_by_id(user_id):
 
 
 @app.get("/users")
-def get_users(user_id):
+def get_users():
     users = UserModel.query.all()
     if users is None:
         return {"Error": f"Users not found"}, 404

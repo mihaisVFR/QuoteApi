@@ -3,6 +3,7 @@ from api import app, db
 from api.models import model_homework
 from api.handlers import author
 from api.handlers import quote
+from api.handlers import user
 
 if not os.path.exists("./main.db"):
     with app.app_context():
