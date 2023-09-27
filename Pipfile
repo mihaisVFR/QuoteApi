@@ -11,6 +11,7 @@ flask-migrate = "*"
 marshmallow = "*"
 flask-marshmallow = "*"
 ipython = "*"
+marshmallow-sqlalchemy = "*"
 
 [dev-packages]
 

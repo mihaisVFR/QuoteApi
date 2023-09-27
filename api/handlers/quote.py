@@ -1,13 +1,13 @@
 from api import app, db, request
 from api.models.author import AuthorModel
 from api.models.quote import QuoteModel
-
+from api.schemas.quote import quotes_schema, quote_schema
 
 @app.route('/quotes/<int:quote_id>', methods=["GET"])
 def get_quotes(quote_id):
     quote = QuoteModel.query.get(quote_id)
     if quote is not None:
-        return quote.to_dict(), 200
+        return quote_schema.dump(quote), 200
     return {"Error": "Quote not found"}, 404
 
 
@@ -15,7 +15,7 @@ def get_quotes(quote_id):
 def all_quotes():
     quotes = QuoteModel.query.all()
     if quotes:
-        return [quote.to_dict() for quote in quotes]
+        return quotes_schema.dump(quotes)
     return {"Error": "Quotes not found"}, 404
 
 
@@ -24,7 +24,7 @@ def quote_by_author(author_id):
     author = AuthorModel.query.get(author_id)
     quotes = author.quotes.all()
     if author is not None:
-        return [quote.to_dict() for quote in quotes], 200
+        return quotes_schema.dump(quotes), 200
     return {"Error": f"Author id={author_id} not found"}, 404
 
 
@@ -38,7 +38,7 @@ def create_quote(author_id):
     quote = QuoteModel(author, quote_data["text"])
     db.session.add(quote)
     db.session.commit()
-    return quote.to_dict(), 201
+    return quote_schema.dump(quote), 201
 
 
 @app.route('/quotes/<int:quote_id>', methods=["PUT"])
@@ -49,7 +49,7 @@ def edit_quote(quote_id):
         return {"Error": f"Quote id={quote_id} not found"}, 404
     quote.text = quote_data["text"]
     db.session.commit()
-    return quote.to_dict(), 200
+    return quote_schema.dump(quote), 200
 
 
 @app.route('/quotes/<int:quote_id>', methods=["DELETE"])
