@@ -27,3 +27,13 @@ def create_user():
     db.session.commit()
     return user_schema.dump(user), 201
 
+
+@app.route('/users/<int:user_id>', methods=["DELETE"])
+def delete_user(user_id):
+    user = UserModel.query.get(user_id)
+    if user is not None:
+        db.session.delete(user)
+        db.session.commit()
+        return {"Success": f"user with id={user_id} deleted"}, 200
+    return {"Error": f"user id={user_id} not found"}, 404
+

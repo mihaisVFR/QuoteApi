@@ -2,7 +2,7 @@
 1. Установить pipenv `sudo apt update`, `apt install pipenv`
 2. Создать виртуальное окружение и установить зависимости: `pipenv sync`
 3. Запустить виртуальное окружение: `pipenv shell`
-4. Создание локальной БД `pipenv run python  create_db.py`
+4. Создание локальной БД `flask db init`,`flask db migrate -m "new db""`,`flask db upgrade`
 5. Для заполнения таблицы Learners значениями `pipenv run python add_learners.py`
 
 ### Файлы с ДЗ расположены в ./day2_homework, модель в ./api/models
