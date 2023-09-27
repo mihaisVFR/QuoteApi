@@ -2,6 +2,7 @@ from api import ma
 from api.models.quote import QuoteModel
 from api.schemas.author import AuthorSchema
 
+
 class QuoteSchema(ma.SQLAlchemySchema):
    class Meta:
        model = QuoteModel

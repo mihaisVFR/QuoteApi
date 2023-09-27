@@ -12,6 +12,7 @@ marshmallow = "*"
 flask-marshmallow = "*"
 ipython = "==8"
 marshmallow-sqlalchemy = "*"
+passlib = "*"
 
 [dev-packages]
 
