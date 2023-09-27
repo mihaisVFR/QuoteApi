@@ -14,7 +14,7 @@ def get_authors():
 def get_author_by_id(author_id):
     author = AuthorModel.query.get(author_id)
     if not author:
-        return f"Author id={author_id} not found", 404
+        return {"Error": f"Author id={author_id} not found"}, 404
 
     return author_schema.dump(author), 200
 
@@ -22,7 +22,7 @@ def get_author_by_id(author_id):
 @app.route('/authors', methods=["POST"])
 def create_author():
     author_data = request.json
-    author = AuthorModel(author_data["name"], author_data["surname"])
+    author = AuthorModel(**author_data)
     db.session.add(author)
     db.session.commit()
     return author_schema.dump(author), 201
@@ -34,7 +34,8 @@ def edit_author(author_id):
     author = AuthorModel.query.get(author_id)
     if author is None:
         return {"Error": f"Author id={author_id} not found"}, 404
-    author.name = author_data["name"]
+    for key, value in author_data.items():
+        setattr(author, key, value)
     db.session.commit()
     return author_schema.dump(author), 200
 

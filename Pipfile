@@ -10,7 +10,7 @@ flask-sqlalchemy = "*"
 flask-migrate = "*"
 marshmallow = "*"
 flask-marshmallow = "*"
-ipython = "*"
+ipython = "==8"
 marshmallow-sqlalchemy = "*"
 
 [dev-packages]

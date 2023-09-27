@@ -22,10 +22,11 @@ def all_quotes():
 @app.route('/authors/<int:author_id>/quotes', methods=["GET"])
 def quote_by_author(author_id):
     author = AuthorModel.query.get(author_id)
+    if author is None:
+        return {"Error": f"Author id={author_id} not found"}, 404
     quotes = author.quotes.all()
-    if author is not None:
-        return quotes_schema.dump(quotes), 200
-    return {"Error": f"Author id={author_id} not found"}, 404
+    return quotes_schema.dump(quotes), 200
+
 
 
 @app.route('/authors/<int:author_id>/quotes', methods=["POST"])
@@ -47,7 +48,8 @@ def edit_quote(quote_id):
     quote = QuoteModel.query.get(quote_id)
     if quote is None:
         return {"Error": f"Quote id={quote_id} not found"}, 404
-    quote.text = quote_data["text"]
+    for key, value in quote_data.items():
+        setattr(quote, key, value)
     db.session.commit()
     return quote_schema.dump(quote), 200
 
