@@ -7,7 +7,7 @@ def serialize_learner(learner_id=1, many=False):
     with app.app_context():
         if many:
             learner = Learner.query.all()
-            learner_schema = LearnerSchema(many=True)
+            learner_schema = LearnerSchema(many=many)
         else:
             learner = Learner.query.get(learner_id)
             learner_schema = LearnerSchema()

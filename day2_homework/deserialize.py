@@ -19,7 +19,7 @@ def deserialize_learner(many=False):
                 json_data = string[0].replace('True', '"True"') .replace("'", '"').replace("False", '"False"')
                 schema = LearnerSchema(many=True)
             else:
-                json_data = string[1].replace('True', '"True"') .replace("'", '"')
+                json_data = string[1].replace('True', '"True"') .replace("'", '"').replace("False", '"False"')
                 schema = LearnerSchema()
 
             return schema.loads(json_data)

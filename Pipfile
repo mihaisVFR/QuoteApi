@@ -13,6 +13,7 @@ flask-marshmallow = "*"
 ipython = "==8"
 marshmallow-sqlalchemy = "*"
 passlib = "*"
+flask-httpauth = "*"
 
 [dev-packages]
 
