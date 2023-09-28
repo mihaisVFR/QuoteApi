@@ -1,4 +1,4 @@
-from api import app, db, request, basic_auth
+from api import app, db, request, basic_auth, token_auth, multy_auth
 from api.models.author import AuthorModel
 from api.models.quote import QuoteModel
 from api.schemas.quote import quotes_schema, quote_schema
@@ -30,7 +30,7 @@ def quote_by_author(author_id):
 
 
 @app.route('/authors/<int:author_id>/quotes', methods=["POST"])
-@basic_auth.login_required
+@multy_auth.login_required
 def create_quote(author_id):
     quote_data = request.json
     author = AuthorModel.query.get(author_id)
@@ -44,7 +44,7 @@ def create_quote(author_id):
 
 
 @app.route('/quotes/<int:quote_id>', methods=["PUT"])
-@basic_auth.login_required
+@multy_auth.login_required
 def edit_quote(quote_id):
     quote_data = request.json
     quote = QuoteModel.query.get(quote_id)
@@ -57,7 +57,7 @@ def edit_quote(quote_id):
 
 
 @app.route('/quotes/<int:quote_id>', methods=["DELETE"])
-@basic_auth.login_required
+@multy_auth.login_required
 def delete_quote(quote_id):
     quote = QuoteModel.query.get(quote_id)
     if quote is not None:
