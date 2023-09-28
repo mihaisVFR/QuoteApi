@@ -20,7 +20,7 @@ def get_author_by_id(author_id):
 
 
 @app.route('/authors', methods=["POST"])
-@auth.login_required
+@basic_auth.login_required
 def create_author():
     # print("user=", auth.current_user())
     author_data = request.json
@@ -31,7 +31,7 @@ def create_author():
 
 
 @app.route('/authors/<int:author_id>', methods=["PUT"])
-@auth.login_required
+@basic_auth.login_required
 def edit_author(author_id):
     author_data = request.json
     author = AuthorModel.query.get(author_id)
@@ -44,7 +44,7 @@ def edit_author(author_id):
 
 
 @app.route('/authors/<int:author_id>', methods=["DELETE"])
-@auth.login_required
+@basic_auth.login_required
 def delete_author(author_id):
     author = AuthorModel.query.get(author_id)
     if author is not None:
