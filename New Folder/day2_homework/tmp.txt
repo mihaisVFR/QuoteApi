@@ -1,0 +1,2 @@
+[{'uid': 1, 'name': 'Petr', 'olympic': True}, {'uid': 2, 'name': 'Alex', 'olympic': True}, {'uid': 3, 'name': 'Ivan', 'olympic': False}, {'uid': 4, 'name': 'Tom', 'olympic': True}]
+{'uid': 1, 'name': 'Petr', 'olympic': True}
