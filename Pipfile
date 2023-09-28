@@ -14,6 +14,7 @@ ipython = "==8"
 marshmallow-sqlalchemy = "*"
 passlib = "*"
 flask-httpauth = "*"
+itsdangerous = "*"
 
 [dev-packages]
 

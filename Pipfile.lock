@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "872af2faffb2c58f41969ba1bfedeb1a6a43ea4fb0174b5b588f171a45a95b5b"
+            "sha256": "8571f4cd4b05095920deecdeb4610f344825eaf7f0926a00bc8c8889b484aca3"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -316,7 +316,7 @@
                 "sha256:3ebb78df84a805d7698245025b975d9d67053cd94c79245ba4b3eb694abe68bb",
                 "sha256:dbace7892d8c0c4ac1ad096662232f831d4e64f4c4545bd53016a3e9d4654743"
             ],
-            "markers": "python_version < '3.10'",
+            "markers": "python_version < '3.9'",
             "version": "==6.8.0"
         },
         "importlib-resources": {
@@ -340,6 +340,7 @@
                 "sha256:2c2349112351b88699d8d4b6b075022c0808887cb7ad10069318a8b0bc88db44",
                 "sha256:5dbbc68b317e5e42f327f9021763545dc3fc3bfe22e6deb96aaf1fc38874156a"
             ],
+            "index": "pypi",
             "version": "==2.1.2"
         },
         "jedi": {
